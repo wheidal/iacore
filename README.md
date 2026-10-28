@@ -59,3 +59,7 @@ python3 -m unittest discover -s tests
 ```
 
 Tests never touch the network. They run against fakes of archive.org.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

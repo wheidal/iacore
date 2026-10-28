@@ -5,4 +5,4 @@ The plumbing shared by deadfetch (DeadShowTagger) and iafetch: one way to ask ar
 against archive.org's size and MD5, and paged search. See README.md for the rules it keeps.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
