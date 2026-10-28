@@ -1,0 +1,25 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install iacore
+        run: pip install -e .
+      - name: Run the tests
+        # A run that hangs is stopped after 2 minutes with SIGABRT, and faulthandler prints every
+        # thread's stack, so the log shows where it was stuck.
+        run: timeout -s ABRT 120 python -X faulthandler -m unittest discover -s tests -v < /dev/null

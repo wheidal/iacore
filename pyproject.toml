@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iacore"
+version = "0.1.0"
+description = "Polite, verified downloading from the Internet Archive: the engine shared by deadfetch and iafetch"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/wheidal/iacore"
+
+[tool.setuptools]
+packages = ["iacore"]
